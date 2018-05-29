@@ -13,5 +13,9 @@ node {
     env.BUILDIMG=imageName
 	
 	stage "Test"
-	    echo 'Testing..'	
+	    echo 'Testing..'
+		
+    stage "Build"
+        echo 'Building..'
+        sh "docker build -t ${imageName} hello-kenzan/"
 }
