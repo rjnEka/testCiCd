@@ -12,15 +12,10 @@ node {
     imageName = "${registryHost}${appName}:${tag}"
     env.BUILDIMG=imageName
 
-    stage "Build"
-    
-        sh "docker build -t ${imageName} hello-kenzan/"
-    
-    stage "Push"
-
-        sh "docker push ${imageName}"
-
-    stage "Deploy"
-
-        sh "sed 's#__IMAGE__#'$BUILDIMG'#' hello-kenzan/k8s/deployment.yaml | kubectl apply -f -"
+    stage('Test') {
+        steps {
+             echo 'Testing..'
+        }
+    }
+	
 }
