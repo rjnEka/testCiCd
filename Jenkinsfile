@@ -11,11 +11,7 @@ node {
     registryHost = "10.0.2.15:31936/"
     imageName = "${registryHost}${appName}:${tag}"
     env.BUILDIMG=imageName
-
-    stage('Test') {
-        steps {
-             echo 'Testing..'
-        }
-    }
 	
+	stage "Test"
+	    echo 'Testing..'	
 }
