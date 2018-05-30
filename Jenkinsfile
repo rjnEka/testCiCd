@@ -14,16 +14,21 @@ node {
 	
     stage "Test"
 	echo 'Testing..'
+	echo 'End Testing..'
     
     stage "Build"
-       echo 'Building..'
+        echo 'Building..'
         sh "docker build -t ${imageName} hello-kenzan/"
+	echo 'End Building..'
     
     stage "Push"
 	echo 'Pushing..'
         sh "docker push ${imageName}"
+	echo 'End Pushing..'
+	
     
     stage "Deploy"
         echo 'Deploying..'
         sh "sed 's#__IMAGE__#'$BUILDIMG'#' hello-kenzan/k8s/deployment.yaml | kubectl apply -f -"
+	echo 'End Deploying..'
 }
