@@ -30,7 +30,7 @@ spec:
         tier: hello-kenzan
     spec:
       containers:
-      - image: http://localhost:30400/hello-kenzan-pipe:latest
+      - image: http://127.0.0.1:30400/hello-kenzan-pipe:latest
         name: hello-kenzan
         ports:
         - containerPort: 80
