@@ -12,8 +12,8 @@ node {
     imageName = "${registryHost}${appName}:${tag}"
     env.BUILDIMG=imageName
 	
-	stage "Test"
-	    echo 'Testing..'
+    stage "Test"
+	echo 'Testing..'
 		
     stage "Build"
         echo 'Building..'
