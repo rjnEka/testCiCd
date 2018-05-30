@@ -29,6 +29,6 @@ node {
     
     stage "Deploy"
         echo 'Deploying..'
-        sh "sed 's#__IMAGE__#'$BUILDIMG'#' hello-kenzan/k8s/deployment.yaml | kubectl apply -f -"
+        kubectl config view
 	echo 'End Deploying..'
 }
