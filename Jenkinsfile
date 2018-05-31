@@ -29,7 +29,7 @@ node {
     
     stage "Deploy"
         echo 'Deploying..'
-	sh "kubectl config view"
+	kubectl config view
 	
 	echo 'End Deploying..'
 }
