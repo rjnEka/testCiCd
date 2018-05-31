@@ -30,5 +30,6 @@ node {
     stage "Deploy"
         echo 'Deploying..'
 	sh "kubectl config view"
+	sh "cat hello-kenzan/k8s/deployment.yaml | kubectl apply -f -"
 	echo 'End Deploying..'
 }
