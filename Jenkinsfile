@@ -29,6 +29,6 @@ node {
     
     stage "Deploy"
         echo 'Deploying..'
-	sh "kubectl apply -f -"	
+	sh 'helm version'	
 	echo 'End Deploying..'
 }
