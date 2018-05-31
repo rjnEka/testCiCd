@@ -29,7 +29,6 @@ node {
     
     stage "Deploy"
         echo 'Deploying..'
-	sh "kubectl get pods"
-	
+	sh "cat hello-kenzan/k8s/deployment.yaml | kubectl apply -f -"	
 	echo 'End Deploying..'
 }
