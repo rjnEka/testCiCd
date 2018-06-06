@@ -15,6 +15,10 @@ node {
     stage "Test"
 	echo 'Testing..'
 	echo 'End Testing..'
-    
+	
+    stage "Build"
+        echo 'Building..'
+        sh "docker build -t ${imageName} hello-kenzan/"
+	echo 'End Building..'
    
 }
