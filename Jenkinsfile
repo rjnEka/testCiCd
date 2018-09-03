@@ -1,4 +1,13 @@
 node {
+    stage('List pods') {
+    withKubeConfig([credentialsId: '',
+                    caCertificate: '',
+                    serverUrl: ''
+                    contextName: ''
+                    ]) {
+      sh 'kubectl get pods'
+    }
+  }
     checkout scm
 
     env.DOCKER_API_VERSION="1.23"
