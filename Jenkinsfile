@@ -1,25 +1,22 @@
-podTemplate(label: 'builder',
-            containers: [
-                    containerTemplate(name: 'kubectl', image: 'ceroic/kubectl', command: 'cat', ttyEnabled: true),
-                    containerTemplate(name: 'maven', image: 'maven:3.3.9-jdk-8-alpine', ttyEnabled: true, command: 'cat')
-            ]) {
+node {
+    checkout scm
 
-        node('builder') {
+    env.DOCKER_API_VERSION="1.23"
+    
+    sh "git rev-parse --short HEAD > commit-id"
 
-            stage('Checkout') {
-                checkout scm
-            }
-
-            stage('Build') {
-                container('maven') {
-                    sh 'mvn clean install'
-                }
-            }
-
-            stage('Build docker image') {
-               
-                        sh "kubectl get pods"
-                        
-            }
-        }
-    }
+    tag = readFile('commit-id').replace("\n", "").replace("\r", "")
+    appName = "hello-kenzan-pipe"
+    registryHost = "127.0.0.1:30400/"
+    imageName = "${registryHost}${appName}:${tag}"
+    env.BUILDIMG=imageName
+	
+    stage "Test"
+	echo 'Testing..'
+	echo 'End Testing..'
+	
+    stage "test2"
+	echo'testing kubectl'
+	sh "kubectl cluster-info"
+   
+}
