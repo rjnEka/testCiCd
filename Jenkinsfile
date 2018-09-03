@@ -1,12 +1,8 @@
 node {
     stage('List pods') {
-    withKubeConfig([credentialsId: '',
-                    caCertificate: '',
-                    serverUrl: '',
-                    contextName: ''
-                    ]) {
-      sh 'kubectl get pods'
-    }
+    withKubeConfig(caCertificate: '', contextName: '', credentialsId: '902dbf82-3a09-46a5-8f13-af491662cd7a', serverUrl: '') {
+   sh 'kubectl get pods'
+}
   }
     checkout scm
 
