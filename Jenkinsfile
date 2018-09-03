@@ -2,7 +2,7 @@ node {
     stage('List pods') {
     withKubeConfig([credentialsId: '',
                     caCertificate: '',
-                    serverUrl: ''
+                    serverUrl: '',
                     contextName: ''
                     ]) {
       sh 'kubectl get pods'
