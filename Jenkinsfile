@@ -1,9 +1,4 @@
 node {
-    stage('List pods') {
-    withKubeConfig(caCertificate: '', contextName: '', credentialsId: '902dbf82-3a09-46a5-8f13-af491662cd7a', serverUrl: '') {
-   sh 'kubectl get pods'
-}
-  }
     checkout scm
 
     env.DOCKER_API_VERSION="1.23"
@@ -22,6 +17,6 @@ node {
 	
     stage "test2"
 	echo'testing kubectl'
-	sh "kubectl cluster-info"
+	sh("kubectl cluster-info")
    
 }
