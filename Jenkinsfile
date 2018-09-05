@@ -16,6 +16,6 @@ podTemplate(label: 'jnlp', containers: [
 
   node('jnlp') {
 
-      echo "hello world"
+      echo "hello world asdfasdf"
   }
 }
